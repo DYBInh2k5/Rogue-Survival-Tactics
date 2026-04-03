@@ -1,6 +1,15 @@
 # Rogue Survival Tactics
 
+[![Build](https://github.com/DYBInh2k5/Rogue-Survival-Tactics/actions/workflows/build.yml/badge.svg)](https://github.com/DYBInh2k5/Rogue-Survival-Tactics/actions/workflows/build.yml)
+[![Release](https://img.shields.io/badge/release-v0.1.0-blue)](https://github.com/DYBInh2k5/Rogue-Survival-Tactics/releases/tag/v0.1.0)
+
 Prototype game web 2D kết hợp roguelike, sinh tồn, chiến thuật thời gian thực mini, fog of war, AI thích nghi và vòng lặp nâng cấp tại căn cứ.
+
+## Demo
+
+- Repository: https://github.com/DYBInh2k5/Rogue-Survival-Tactics
+- Release notes: [CHANGELOG.md](CHANGELOG.md)
+- Gameplay GIF: sẽ cập nhật ở phiên bản kế tiếp
 
 ## Tổng quan
 
