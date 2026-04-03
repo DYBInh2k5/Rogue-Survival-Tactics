@@ -1,47 +1,71 @@
 # Rogue Survival Tactics
 
-Prototype game web 2D kết hợp roguelike, sinh tồn, chiến thuật mini, fog of war và AI thích nghi.
+Prototype game web 2D kết hợp roguelike, sinh tồn, chiến thuật thời gian thực mini, fog of war, AI thích nghi và vòng lặp nâng cấp tại căn cứ.
+
+## Tổng quan
+
+Bạn điều khiển một chiến binh trong bản đồ sinh ngẫu nhiên, vừa thu thập tài nguyên, dựng phòng thủ, nâng cấp nhân vật, vừa hoàn thành quest nhánh để kích hoạt boss cuối.
+
+Core loop:
+
+1. Khám phá và thu thập tài nguyên
+2. Xây dựng và phòng thủ căn cứ
+3. Chọn nhánh quest (Scavenger / Defender / Hunter)
+4. Nâng cấp tại base và giao dịch relic
+5. Đối đầu Night Warden
 
 ## Chạy dự án
+
+Yêu cầu: Node.js 20+.
 
 ```bash
 npm install
 npm run dev
 ```
 
+Build production:
+
+```bash
+npm run build
+```
+
 ## Điều khiển
 
 - `WASD` hoặc phím mũi tên: di chuyển
 - `Space`: bắn
-- `K`: đặt tường ở ô trước mặt
-- `L`: đặt tháp ở ô trước mặt
-- `R`: craft medkit nếu đứng gần căn cứ
-- `F`: nhặt tài nguyên quanh người chơi
-- `Shift`: chạy nhanh
-- `M`: lưu tiến trình
+- `Shift`: chạy nhanh (tiêu hao stamina)
+- `F`: nhặt tài nguyên gần người
+- `K`: đặt tường
+- `L`: đặt tháp
+- `R`: craft và dùng medkit (khi gần base)
+- `Q`: mở bảng quest (khi gần base)
+- `B`: mở bảng upgrade bench (khi gần base)
+- `V`: mở bảng merchant/relic trade (khi gần base)
+- `M`: lưu tiến trình thủ công
 - `N`: tạo ván mới và xóa save hiện tại
-- `Q`: mở bảng quest khi đứng gần căn cứ
-- `B`: mở bảng nâng cấp khi đứng gần căn cứ
+- `Esc`: đóng overlay
 
-## Hệ thống hiện có
+## Hệ thống chính
 
-- Bản đồ sinh ngẫu nhiên với fog of war
-- AI địch thích nghi theo cách người chơi đánh và xây dựng
-- Chu kỳ ngày đêm, thời tiết, sinh tồn, crafting và phòng thủ căn cứ
-- Minimap theo dõi vùng đã khám phá và vị trí kẻ địch/tài nguyên
-- Tài nguyên có respawn để duy trì vòng lặp chơi dài hơn
-- Tự động lưu trạng thái và khôi phục khi mở lại game
-- Quest nhánh Scavenger / Defender / Hunter với thưởng khác nhau
-- Boss cuối Night Warden xuất hiện sau khi hoàn thành quest và beacon
-- Biome khác nhau ảnh hưởng đến loot và kiểu địch
-- Upgrade bench để tăng HP, damage và stamina
-- Stamina ảnh hưởng trực tiếp đến tốc độ chạy nhanh
+- Procedural map generation
+- Fog of war + minimap theo vùng đã khám phá
+- Day/night cycle + weather (`clear`, `fog`, `storm`)
+- AI kẻ địch thích nghi theo lối chơi người dùng
+- Hệ thống tài nguyên và crafting
+- Hệ thống xây dựng phòng thủ (`wall`, `turret`, `beacon`)
+- Quest nhánh với phần thưởng theo phong cách chơi
+- Boss Night Warden nhiều phase
+- Biome ảnh hưởng spawn/loot
+- Upgrade bench (HP, damage, stamina)
+- Merchant trao đổi bằng `relic`
+- Save/load local tự động + thủ công
 
-## Mục tiêu prototype
+## Cấu trúc mã nguồn
 
-- Sinh bản đồ ngẫu nhiên
-- Có fog of war
-- Có day/night và weather
-- Có AI địch thích nghi theo phong cách chơi
-- Có tài nguyên, crafting, phòng thủ căn cứ
-- Có hệ thống nhiệm vụ chính
+- `src/main.ts`: game loop, systems, rendering, UI interactions
+- `src/style.css`: giao diện HUD/overlay
+- `index.html`: entry web app
+
+## Trạng thái hiện tại
+
+Đây là bản prototype hoàn chỉnh cho mục tiêu môn học nâng cao, ưu tiên thể hiện hệ thống gameplay và kiến trúc mở rộng.
